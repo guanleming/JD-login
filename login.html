@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
+    <title>京东</title>
+    <style>
+        #app {
+            font-size: .16rem;
+            width: 100%;
+            height: 100%;
+        }
+
+        #page {
+            width: 100%;
+            height: 100%;
+            padding: .25rem;
+            padding-top: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 100px;
+        }
+
+        #header {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: .44rem;
+            margin-bottom: .1rem;
+
+        }
+
+        .header-icon {
+            position: absolute;
+            top: .1rem;
+            display: block;
+            width: .2rem;
+            height: .2rem;
+            background-image: url(./iamge/icon.png);
+            background-size: 100% auto;
+        }
+
+        .header-text {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: .17rem;
+        }
+
+        #inputs {
+            display: inline-block;
+            width: 100%;
+            height: 1rem;
+            background-color: rgb(255, 255, 255);
+            margin-bottom: .8rem;
+        }
+
+        .x {
+            position: absolute;
+            top: .7rem;
+            left: 3.3rem;
+            background: white;
+            outline: none;
+            border: none;
+            color: #ccc;
+            font-size: .25rem;
+            display: none;
+        }
+
+        .xx {
+            position: absolute;
+            top: 1.23rem;
+            left: 2.15rem;
+            background: white;
+            outline: none;
+            border: none;
+            color: #ccc;
+            font-size: .25rem;
+            display: none;
+        }
+
+        input::-webkit-input-placeholder {
+            color: #999999;
+            font-size: .16rem;
+        }
+
+        .inputs-one {
+            border: none;
+            outline: none;
+            width: 100%;
+            height: .5rem;
+            font-size: .16rem;
+            border-bottom: .01rem solid #efefef;
+            margin-bottom: .1rem;
+        }
+
+        .btn {
+            width: 1rem;
+            height: 0.2rem;
+            position: absolute;
+            top: 1.25rem;
+            left: 2.55rem;
+            border: none;
+            background-color: white;
+            color: #000000;
+            border-left: 1px solid #c7c7c7;
+            font-size: .13rem;
+            outline: none;
+        }
+
+        .forget {
+            width: 1rem;
+            height: 0.2rem;
+            position: absolute;
+            top: 1.85rem;
+            left: 2.55rem;
+            border: none;
+            background-color: white;
+            color: #848689;
+            border-left: 1px solid #c7c7c7;
+            font-size: .14rem;
+            outline: none;
+        }
+
+        .eyes {
+            position: absolute;
+            top: 1.85rem;
+            left: 2.1rem;
+            display: inline-block;
+            width: .24rem;
+            height: .24rem;
+            background-image: url(./iamge/close.png);
+            background-size: 100% auto;
+        }
+
+        #anniu {
+            margin-bottom: .15rem;
+        }
+
+        .lv {
+            width: 100%;
+            height: 0.5rem;
+            color: white;
+            font-size: .16rem;
+            outline: none;
+            border: none;
+            border-radius: .25rem;
+            background-color: rgba(254, 29, 0, .3);
+            margin-bottom: .12rem;
+        }
+
+        .lv2 {
+            width: 100%;
+            height: 0.5rem;
+            color: #F10000;
+            font-size: .16rem;
+            outline: none;
+            border: none;
+            border-radius: .25rem;
+            border: 1px solid #F10000;
+            background: white;
+        }
+
+        #ways {
+            display: flex;
+            justify-content: space-between;
+            font-size: .14rem;
+            color: rgba(0, 0, 0, .4);
+            margin-bottom: .5rem;
+        }
+
+        #ways a .ways-span {
+            color: rgba(0, 0, 0, .4);
+        }
+
+        .other {
+            width: 100%;
+            height: .3rem;
+        }
+
+        .other-span {
+            display: inline-block;
+            width: 100%;
+            height: 0.01rem;
+            background-color: rgba(0, 0, 0, .2);
+        }
+
+        .other-spanb {
+            background-color: white;
+            position: absolute;
+            left: 1.25rem;
+            display: inline-block;
+            text-align: center;
+            width: 1.3rem;
+            height: .3rem;
+            line-height: .3rem;
+            color: rgba(0, 0, 0, .2);
+            font-size: .12rem;
+        }
+
+        .other-one {
+            display: block;
+            margin-bottom: .2rem;
+        }
+
+        .other-two {
+            display: flex;
+            justify-content: center;
+            margin-bottom: .2rem;
+        }
+
+        .other-two-one {
+            display: inline-block;
+            width: .5rem;
+            height: .8rem;
+            background-image: url(./iamge/qq.png);
+            background-size: 100% auto;
+            padding-top: .55rem;
+            background-repeat: no-repeat;
+            text-align: center;
+            margin-right: .2rem;
+            color: rgba(0, 0, 0, .4);
+            font-size: .13rem;
+        }
+
+        .other-two-two {
+            display: inline-block;
+            width: .5rem;
+            height: .8rem;
+            background-image: url(./iamge/wx.png);
+            background-size: 100% auto;
+            padding-top: .55rem;
+            background-repeat: no-repeat;
+            text-align: center;
+            margin-left: .2rem;
+            color: rgba(0, 0, 0, .4);
+            font-size: .13rem;
+        }
+
+        .other-two-three {
+            font-size: .13rem;
+            text-align: center;
+        }
+
+        .other-two-three .other-three-a {
+            color: #4A90E2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 页面 -->
+        <div id="page">
+
+            <!-- 头部 -->
+            <div id="header">
+                <span class="header-icon"></span>
+                <span class="header-text">京东登录注册</span>
+            </div>
+
+            <!-- 账号密码框 -->
+            <div id="inputs">
+
+                <input onkeyup="chadnge(this.value)" type="text " placeholder="用户名/邮箱/手机号" value="" class="inputs-one"
+                    maxlength="11" oninput="value=value.replace(/[^\d]/g,'')">
+                <button class="x">×</button>
+                <input onkeyup="chadnge2(this.value)" type="text " placeholder="请输入收到的验证码" value="" class="inputs-one"
+                    maxlength="11" oninput="value=value.replace(/[^\d]/g,'')">
+
+                <!-- <input type="button" value="获取验证码" class="btn"> -->
+                <button class="btn">获取验证码</button>
+                <button class="xx">×</button>
+                <input onkeyup="chadnge3(this.value)" type="password" class="inputs-one inputs-password" value=""
+                    maxlength="12" placeholder="请输入密码">
+
+                <a href="##"><button class="forget"><a
+                            href="https://plogin.m.jd.com/findpwd/iaandex?appid=300&returnurl=https%3A%2F%2Fwq.jd.com%2Fpassport%2FLoginRedirect%3Fstate%3D1726929197%26returnurl%3Dhttps%253A%252F%252Fhome.m.jd.com%252FmyJd%252Fnewhome.action%253Fsceneval%253D2%2526ufc%253D%2526%252FmyJd%252Fhome.action&source=wq_passport">忘记密码</a></button></a>
+                <span class="eyes"></span>
+
+            </div>
+
+
+            <!-- 登录按钮 -->
+            <div id="anniu">
+                <button class="lv" id="btn">登&ensp;录</button>
+                <button class="lv2">一键登录</button>
+            </div>
+
+            <!-- 其他登录方式 -->
+            <div id="ways">
+                <a href="##"><span class="ways-span"> 短信验证码登录</span></a>
+                <a href="##"><span class="ways-span">手机快速注册</span></a>
+
+
+            </div>
+
+            <!-- 其他 -->
+            <div class="other">
+                <div class="other-one">
+                    <span class="other-span"></span>
+                    <span class="other-spanb">其他登录方式</span>
+                </div>
+                <div class="other-two">
+                    <a class="other-two-one" href="##">QQ</a>
+                    <a class="other-two-two" href="##">微信</a>
+                </div>
+                <div class="other-two-three" href="##">
+                    <span>登录即代表您已同意</span><a href="##" class="other-three-a">京东隐私政策</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    //rem响应式
+    {
+        function setRem() {
+            var uiw = 375;
+            var winw = document.documentElement.clientWidth || document.body.clientWidth;
+            document.documentElement.style.fontSize = (winw / uiw) * 100 + "px";
+        }
+        setRem();
+        window.onresize = setRem;
+    }
+
+    //短信倒计时功能
+    {
+
+        let btns = document.querySelector('.btn');
+        let sec = 11;
+        let times = null;
+        btns.onclick = function () {
+            btns.disabled = true;
+            times = setInterval(() => {
+                if (sec > 0) {
+                    this.innerHTML = --sec + "秒后重新获取"
+                }
+                else {
+                    clearInterval(times);
+                    btns.innerHTML = "重新获取"
+                    btns.disabled = false;
+                    sec = 11
+                }
+            }, 1000);
+        }
+    }
+
+    //眼睛切换
+    {
+        //获取密码框
+        let inputs = document.querySelector('.inputs-password');
+        // console.log(inputs);
+        //获取眼睛
+        let eyes = document.querySelector(".eyes");
+        // console.log(eyes);
+        eyes.onclick = function () {
+            if (inputs.type == "password") {
+                inputs.type = 'text';
+                this.style.backgroundImage = "url(./iamge/open.png)"
+            } else if (inputs.type == "text") {
+                inputs.type = 'password';
+                this.style.backgroundImage = "url(./iamge/close.png)"
+            }
+        }
+
+    }
+
+    //登录高亮
+    {
+        let input = document.querySelector("input")
+        //获取三个input框
+        let inp1 = document.querySelectorAll(".inputs-one")[0]
+        let inp2 = document.querySelectorAll(".inputs-one")[1]
+        let inp3 = document.querySelectorAll(".inputs-one")[2]
+        let dl = document.querySelector('.lv')
+        //获取x
+        let xs = document.querySelector('.x');
+        let xxs = document.querySelector('.xx');
+
+        console.log(xs, xxs);
+        console.log(dl);
+        console.log(inp1.value);
+
+        inp1.addEventListener('keyup', function () {
+            if (inp1.value != '') {
+                xs.style.display = "block";
+            } else {
+                xs.style.display = "none"
+            }
+        })
+
+        xs.onclick = function () {
+            inp1.value = '';
+        }
+        inp2.addEventListener('keyup', function () {
+            if (inp2.value != '') {
+                xxs.style.display = "block";
+            } else {
+                xxs.style.display = "none"
+            }
+
+        })
+
+        xxs.onclick = function () {
+            inp2.value = '';
+        }
+        
+
+
+        /* function key1() {
+            console.log(inp1.value, inp2.value, inp3.value);
+            if (inp1.value != '' || inp2.value != '' || inp3.value != '') {
+                dl.style.backgroundColor = "red";
+            } else {
+                dl.style.backgroundColor = "rgba(254, 29, 0, .3)"
+            }
+        }
+        function key2() {
+            console.log(inp1.value, inp2.value, inp3.value);
+            if (inp1.value != '' || inp2.value != '' || inp3.value != '') {
+                dl.style.backgroundColor = "red";
+            } else {
+                dl.style.backgroundColor = "rgba(254, 29, 0, .3)"
+            }
+        }
+        function key3() {
+            console.log(inp1.value, inp2.value, inp3.value);
+            if (inp1.value != '' || inp2.value != '' || inp3.value != '') {
+                dl.style.backgroundColor = "red";
+            } else {
+                dl.style.backgroundColor = "rgba(254, 29, 0, .3)"
+            }
+        }
+
+ */
+
+        // inp1,inp2,inp3.addEventListener('keyup', function () {
+        //     if (inp1.value != '' ) {
+        //         dl.style.backgroundColor = "red";
+        //     }else if(inp1.value == ''){
+        //         dl.style.backgroundColor = "rgba(254, 29, 0, .3)"
+        //     }
+
+        // })
+
+        // if(inp1.value != ''){
+
+        //     dl.style.backgroundColor = "red"
+        // }
+
+
+        var a = '';
+        var b = '';
+        var c = '';
+        function chadnge(e) {
+            console.log(e);
+            a = e;
+            if (a != '' && b != '' && c != '') {
+                document.getElementById('btn').style.background = "red";
+            } else {
+                document.getElementById('btn').style.background = "rgba(254, 29, 0, .3)";
+            }
+        }
+
+        function chadnge2(e) {
+            b = e;
+            if (a != '' && b != '' && c != '') {
+                document.getElementById('btn').style.background = "red";
+            } else {
+                document.getElementById('btn').style.background = "rgba(254, 29, 0, .3)";
+            }
+        }
+
+        function chadnge3(e) {
+            c = e;
+            if (a != '' && b != '' && c != '') {
+                document.getElementById('btn').style.background = "red";
+            } else {
+                document.getElementById('btn').style.background = "rgba(254, 29, 0, .3)";
+            }
+        }
+    }
+
+
+</script>
+
+</html>
